@@ -3,9 +3,19 @@ package controller
 import skinny._
 import skinny.validator._
 import model._
+import org.scalatra.swagger.Swagger
+import skinny.controller.{ SkinnyResourceRoutes, SwaggerWiredApiResourceRoutes, SkinnyResourceActions }
 
-class ProgrammersController extends SkinnyResource with ApplicationController {
+class ProgrammersController(val swagger: Swagger)
+    extends ApplicationController
+    with SkinnyResourceActions[Long]
+    with SkinnyResourceRoutes[Long]
+    with SwaggerWiredApiResourceRoutes[Long] {
+
   protectFromForgery()
+
+  override def applicationName = Some("programmers")
+  override def applicationDescription: String = "operations on programmers"
 
   override def model = Programmer
   override def resourcesName = "programmers"

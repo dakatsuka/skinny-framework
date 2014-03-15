@@ -10,7 +10,9 @@ object SkinnyFrameworkBuild extends Build {
   val _organization = "org.skinny-framework"
   val _version = "1.0.0-RC10-SNAPSHOT"
   val scalatraVersion = "2.2.2"
-  val json4SVersion = "3.2.7"
+  // scalatra-swagger doesn't work with json4s 3.2.5 or higher
+  //val json4SVersion = "3.2.7"
+  val json4SVersion = "3.2.4"
   val scalikeJDBCVersion = "1.7.4"
   val scalateVeresion = "1.6.1"
   val h2Version = "1.3.175"
@@ -194,6 +196,7 @@ object SkinnyFrameworkBuild extends Build {
     "org.scalatra"  %% "scalatra"           % scalatraVersion  % "compile",
     "org.scalatra"  %% "scalatra-scalate"   % scalatraVersion  % "compile",
     "org.scalatra"  %% "scalatra-json"      % scalatraVersion  % "compile",
+    "org.scalatra"  %% "scalatra-swagger"   % scalatraVersion  % "compile",
     "org.json4s"    %% "json4s-jackson"     % json4SVersion    % "compile",
     "org.json4s"    %% "json4s-ext"         % json4SVersion    % "compile",
     "org.scalatra"  %% "scalatra-scalatest" % scalatraVersion  % "test"

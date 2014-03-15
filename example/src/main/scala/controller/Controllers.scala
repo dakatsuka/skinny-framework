@@ -1,6 +1,7 @@
 package controller
 
 import skinny._
+import org.scalatra.swagger.Swagger
 
 object Controllers {
 
@@ -12,7 +13,7 @@ object Controllers {
     val invalidateUrl = get("/invalidate")(invalidateExample).as('invalidate)
   }
 
-  object programmers extends ProgrammersController with Routes {
+  case class programmers(implicit override val swagger: Swagger) extends ProgrammersController(swagger) with Routes {
     val joinCompanyUrl = post("/programmers/:programmerId/company/:companyId")(joinCompany).as('joinCompany)
     val leaveCompanyUrl = delete("/programmers/:programmerId/company")(leaveCompany).as('leaveCompany)
     val addSkillUrl = post("/programmers/:programmerId/skills/:skillId")(addSkill).as('addSkill)
