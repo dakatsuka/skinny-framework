@@ -14,5 +14,21 @@ sbt clean \
   task/publishSigned \
   test/publishSigned \
   freemarker/publishSigned \
+  thymeleaf/publishSigned
+sbt clean \
+  ++2.11.1 \
+  common/publishSigned \
+  assets/publishSigned \
+  httpClient/publishSigned \
+  orm/publishSigned \
+  factoryGirl/publishSigned \
+  validator/publishSigned \
+  framework/publishSigned \
+  mailer/publishSigned \
+  standalone/publishSigned \
+  task/publishSigned \
+  test/publishSigned \
+  freemarker/publishSigned \
   thymeleaf/publishSigned 
+
 
